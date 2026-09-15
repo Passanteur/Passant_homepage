@@ -2,16 +2,203 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>Passant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人主页</title>
+  <style>
+    :root {
+      --bg: #f6f8fa;
+      --card: #ffffff;
+      --text: #24292f;
+      --muted: #57606a;
+      --accent: #0969da;
+      --accent-hover: #0550ae;
+      --border: #d0d7de;
+      --radius: 16px;
+      --shadow: 0 8px 24px rgba(140, 149, 159, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 48px 0 32px;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-top: 16px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-top: 8px;
+    }
+
+    .links {
+      margin-top: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      margin-top: 40px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      padding-left: 4px;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .note-card {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .note-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: var(--accent);
+    }
+
+    .note-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    .note-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: 64px 0 24px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 16px;
+      }
+
+      header {
+        padding: 32px 0 24px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .avatar {
+        width: 96px;
+        height: 96px;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117;
+        --card: #161b22;
+        --text: #c9d1d9;
+        --muted: #8b949e;
+        --accent: #58a6ff;
+        --accent-hover: #79c0ff;
+        --border: #30363d;
+        --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>你好，我是 Passant</h1>
-  <p>欢迎来到我的个人主页，这里会陆续放上我的课程笔记。</p>
+  <div class="container">
+    <header>
+      <img class="avatar" src="https://github.com/Passanteur.png" alt="头像">
+      <h1>你好，我是 Passant</h1>
+      <p class="subtitle">此处存放本科期间笔记</p>
+      <div class="links">
+        <a href="https://github.com/Passanteur" target="_blank">GitHub</a>
+        <a href="mailto:2228217869@qq.com">邮箱</a>
+      </div>
+    </header>
 
-  <h2>课程笔记</h2>
-  <ul>
-    <li><a href="https://github.com/Passanteur/Passant_homepage/releases/download/MA1/Mathematical.Analysis.pdf" target="_blank">数学分析Ⅰ笔记</a></li>
-    <li><a href="https://github.com/你的用户名/仓库名/releases/download/v1.0/笔记2.pdf" target="_blank">课程B笔记</a></li>
-  </ul>
+    <section>
+      <h2>📚 课程笔记</h2>
+      <div class="notes-grid">
+        <a class="note-card" href="https://github.com/Passanteur/Passant_homepage/releases/download/MA1/Mathematical.Analysis.pdf" target="_blank">
+          <h3>数学分析Ⅰ笔记</h3>
+          <p>点击查看或下载 PDF</p>
+        </a>
+
+        <a class="note-card" href="你的笔记2链接" target="_blank">
+          <h3>课程B笔记</h3>
+          <p>点击查看或下载 PDF</p>
+        </a>
+
+        <a class="note-card" href="你的笔记3链接" target="_blank">
+          <h3>课程C笔记</h3>
+          <p>点击查看或下载 PDF</p>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 [Passant] · 由 GitHub Pages 托管
+    </footer>
+  </div>
 </body>
 </html>
